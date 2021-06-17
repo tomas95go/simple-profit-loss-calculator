@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <h1> Simple profit/loss calculator for Crypto!</h1>
     <p> Welcome, this calculator 
       can help you to easily estimate the % of your profits or the % of your losses on crypto
@@ -9,12 +9,12 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Card from "@/components/Card.vue";
 
 export default {
-  name: "Home",
+  name: "Main",
   components: {
-    HelloWorld,
+    Card,
   },
 };
 </script>
