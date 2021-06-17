@@ -5,6 +5,9 @@
       can help you to easily estimate the % of your profits or the % of your losses on crypto
     </p>
   </div>
+  <div>
+    <Card />
+  </div>
 </template>
 
 <script>
