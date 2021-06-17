@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1> Simple profit/loss calculator for Crypto!</h1>
+    <p> Welcome, this calculator 
+      can help you to easily estimate the % of your profits or the % of your losses on crypto
+    </p>
   </div>
 </template>
 
