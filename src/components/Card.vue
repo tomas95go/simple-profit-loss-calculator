@@ -1,12 +1,16 @@
 <template>
     <h3> Input your position data </h3>
+    <DataEntry />
 </template>
 
 <script>
 
-import Card from "@/components/DataEntry.vue";
+import DataEntry from "@/components/DataEntry.vue";
 
 export default {
-  name: "Card"
+  name: "Card",
+    components: {
+    DataEntry,
+  },
 };
 </script>
