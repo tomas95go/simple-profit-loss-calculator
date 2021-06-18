@@ -1,6 +1,8 @@
 <template>
     <h3> Input your position data </h3>
-    <DataEntry />
+    <div v-if="cardRegion === 'data-entry'">
+      <DataEntry />
+    </div>
 </template>
 
 <script>
@@ -12,5 +14,10 @@ export default {
     components: {
     DataEntry,
   },
+  data() {
+    return {
+      cardRegion: 'data-entry',
+    }
+  }
 };
 </script>
