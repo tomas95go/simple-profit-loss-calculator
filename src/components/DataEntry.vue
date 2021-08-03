@@ -59,7 +59,7 @@
       </div>
     </div>
     <div>
-      <button @click="validateForm" :value="buttonText">
+      <button @click="submitForm" :value="buttonText">
         {{ buttonText }}
       </button>
     </div>
@@ -132,6 +132,9 @@ export default {
       }
 
       return this.errorQuantity
+    },
+    submitForm() {
+      this.validateForm()
     },
   },
   computed: {
