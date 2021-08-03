@@ -100,6 +100,7 @@ export default {
   methods: {
     validateForm() {
       this.formErrors.length = 0
+      this.errorQuantity = 0
       let errorCode = 0
       let errorMessage = ``
       if (!this.selectedStable) {
