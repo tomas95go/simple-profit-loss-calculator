@@ -53,6 +53,9 @@
         {{ buttonText }}
       </button>
     </div>
+    <p v-show="errorNumber" v-for="error in formErrors" :key="error.id">
+      {{ error.message }}
+    </p>
   </div>
 </template>
 
@@ -78,6 +81,8 @@ export default {
       selectedVolatile: '',
       selectedStable: '',
       buttonText: 'Calculate',
+      formErrors: [],
+      errorNumber: 0,
     }
   },
   methods: {
