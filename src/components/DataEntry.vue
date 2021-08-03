@@ -87,6 +87,36 @@ export default {
   },
   methods: {
     validateForm() {
+      let errorCode = 0
+      let errorMessage = ``
+      if (!this.selectedStable) {
+        errorCode = 1
+        errorMessage = `You need to select a stable coin from the list`
+        this.formErrors.push({ id: errorCode, message: errorMessage })
+      }
+
+      if (!this.selectedVolatile) {
+        errorCode = 2
+        errorMessage = `You need to select a volatile coin from the list`
+        this.formErrors.push({ id: errorCode, message: errorMessage })
+      }
+
+      if (!this.quantityAcquired) {
+        errorCode = 3
+        errorMessage = `Your quantity acquired must be greater than 0`
+        this.formErrors.push({ id: errorCode, message: errorMessage })
+      }
+
+      if (!this.investedAmount) {
+        errorCode = 4
+        errorMessage = `Your invested amount must be greater than 0`
+        this.formErrors.push({ id: errorCode, message: errorMessage })
+      }
+
+      if (this.formErrors.length) {
+        this.errorNumber = 1
+      }
+
       return console.log('Working!')
     },
   },
