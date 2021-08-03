@@ -53,7 +53,7 @@
         {{ buttonText }}
       </button>
     </div>
-    <p v-show="errorNumber" v-for="error in formErrors" :key="error.id">
+    <p v-show="errorQuantity" v-for="error in formErrors" :key="error.id">
       {{ error.message }}
     </p>
   </div>
@@ -82,7 +82,7 @@ export default {
       selectedStable: '',
       buttonText: 'Calculate',
       formErrors: [],
-      errorNumber: 0,
+      errorQuantity: 0,
     }
   },
   methods: {
@@ -114,7 +114,7 @@ export default {
       }
 
       if (this.formErrors.length) {
-        this.errorNumber = 1
+        this.errorQuantity = 1
       }
 
       return console.log('Working!')
