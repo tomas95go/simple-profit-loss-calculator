@@ -1,7 +1,11 @@
 <template>
   <div class="content is-flex is-justify-content-center">
     <ul v-show="errorQuantity" class="has-text-justified">
-      <li v-for="error in formErrors" :key="error.id">
+      <li
+        class="has-text-warning-dark"
+        v-for="error in formErrors"
+        :key="error.id"
+      >
         {{ error.message }}
       </li>
     </ul>
