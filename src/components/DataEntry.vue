@@ -87,6 +87,7 @@ export default {
   },
   methods: {
     validateForm() {
+      this.formErrors.length = 0
       let errorCode = 0
       let errorMessage = ``
       if (!this.selectedStable) {
