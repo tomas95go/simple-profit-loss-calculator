@@ -120,7 +120,7 @@ export default {
         this.errorQuantity = 1
       }
 
-      return console.log('Working!')
+      return this.errorQuantity
     },
   },
   computed: {
