@@ -48,6 +48,11 @@
         </div>
       </div>
     </div>
+    <div>
+      <button @click="validateForm" :value="buttonText">
+        {{ buttonText }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -72,7 +77,13 @@ export default {
       quantityAcquired: 9.78,
       selectedVolatile: '',
       selectedStable: '',
+      buttonText: 'Calculate',
     }
+  },
+  methods: {
+    validateForm() {
+      return console.log('Working!')
+    },
   },
   computed: {
     volatileCoins() {
