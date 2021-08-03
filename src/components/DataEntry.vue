@@ -53,19 +53,17 @@
         {{ buttonText }}
       </button>
     </div>
-    <div class="content is-flex is-justify-content-center">
-      <ul v-show="errorQuantity" class="has-text-justified">
-        <li v-for="error in formErrors" :key="error.id">
-          {{ error.message }}
-        </li>
-      </ul>
-    </div>
   </div>
+  <ErrorList :formErrors="formErrors" :errorQuantity="errorQuantity" />
 </template>
 
 <script>
+import ErrorList from '@/components/ErrorList.vue'
 export default {
   name: 'DataEntry',
+  components: {
+    ErrorList,
+  },
   data() {
     return {
       coinList: [
@@ -85,8 +83,8 @@ export default {
       selectedVolatile: '',
       selectedStable: '',
       buttonText: 'Calculate',
-      formErrors: [],
       errorQuantity: 0,
+      formErrors: [],
     }
   },
   methods: {
