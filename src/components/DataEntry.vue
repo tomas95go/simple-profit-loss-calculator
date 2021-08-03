@@ -7,7 +7,12 @@
       <div class="field-body">
         <div class="field">
           <p class="control is-expanded">
-            <input class="input" type="text" placeholder="quantity acquired" />
+            <input
+              class="input"
+              type="text"
+              placeholder="quantity acquired"
+              v-model="quantityAcquired"
+            />
           </p>
         </div>
         <div class="field">
@@ -29,7 +34,12 @@
         </div>
         <div class="field">
           <p class="control is-expanded">
-            <input type="text" class="input" placeholder="invested amount" />
+            <input
+              type="text"
+              class="input"
+              placeholder="invested amount"
+              v-model="investedAmount"
+            />
           </p>
         </div>
         <div class="field">
