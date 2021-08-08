@@ -94,13 +94,13 @@ export default {
       }
       return this.currentLanguage
     },
-    computed: {
-      displayTitle() {
-        return this.getTitle(this.currentLanguage)
-      },
-      displayDescription() {
-        return this.getDescription(this.currentLanguage)
-      },
+  },
+  computed: {
+    displayTitle() {
+      return this.getTitle(this.currentLanguage)
+    },
+    displayDescription() {
+      return this.getDescription(this.currentLanguage)
     },
   },
   created() {
