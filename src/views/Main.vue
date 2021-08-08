@@ -88,6 +88,12 @@ export default {
       })
       return title[0].text
     },
+    loadDefaultLanguage() {
+      if (this.currentLanguage === ``) {
+        this.currentLanguage = this.defaultLanguage
+      }
+      return this.currentLanguage
+    },
     computed: {
       displayTitle() {
         return this.getTitle(this.currentLanguage)
@@ -96,6 +102,9 @@ export default {
         return this.getDescription(this.currentLanguage)
       },
     },
+  },
+  created() {
+    this.loadDefaultLanguage()
   },
 }
 </script>
