@@ -3,6 +3,9 @@
     <h1>{{ displayTitle }}</h1>
     <p>{{ displayDescription }}</p>
   </div>
+  <button class="button is-black" @click="changeElementsLanguage">
+    Spanish
+  </button>
   <div>
     <Card />
   </div>
