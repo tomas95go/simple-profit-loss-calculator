@@ -1,10 +1,7 @@
 <template>
   <div>
-    <h1>Simple profit/loss calculator for Crypto!</h1>
-    <p>
-      Welcome, this calculator can help you to easily estimate the % of your
-      profits or the % of your losses on crypto
-    </p>
+    <h1>{{ displayTitle }}</h1>
+    <p>{{ displayDescription }}</p>
   </div>
   <div>
     <Card />
@@ -88,5 +85,14 @@ export default {
       })
       return title[0].text
     },
+    computed: {
+      displayTitle() {
+        return this.getTitle(this.currentLanguage)
+      },
+      displayDescription() {
+        return this.getDescription(this.currentLanguage)
+      },
+    },
+  },
 }
 </script>
