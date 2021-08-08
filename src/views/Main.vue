@@ -88,6 +88,14 @@ export default {
       })
       return title[0].text
     },
+    getDescription(currentLanguage) {
+      const description = this.appDescriptions.filter((el) => {
+        if (el.language === currentLanguage) {
+          return el
+        }
+      })
+      return description[0].text
+    },
     loadDefaultLanguage() {
       if (this.currentLanguage === ``) {
         this.currentLanguage = this.defaultLanguage
