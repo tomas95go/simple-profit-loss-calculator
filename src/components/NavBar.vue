@@ -4,7 +4,10 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <LangBtn @changeLanguage="this.$emit('changeLanguage')" />
+            <LangBtn
+              @changeLanguage="this.$emit('changeLanguage')"
+              :currentLanguage="currentLanguage"
+            />
           </div>
         </div>
       </div>
@@ -19,6 +22,9 @@ export default {
   name: 'NavBar',
   components: {
     LangBtn,
+  },
+  props: {
+    currentLanguage: String,
   },
 }
 </script>

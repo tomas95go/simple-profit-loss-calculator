@@ -1,5 +1,5 @@
 <template>
-  <NavBar @changeLanguage="changeLanguage" />
+  <NavBar @changeLanguage="changeLanguage" :currentLanguage="currentLanguage" />
   <div>
     <h1>{{ displayTitle }}</h1>
     <p>{{ displayDescription }}</p>
