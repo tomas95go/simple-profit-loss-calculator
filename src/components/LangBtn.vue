@@ -1,5 +1,7 @@
 <template>
-  <button class="button is-black">Spanish</button>
+  <button class="button is-black" @click="this.$emit('changeLanguage')">
+    Spanish
+  </button>
 </template>
 
 <script>

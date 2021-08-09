@@ -4,9 +4,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
-              <strong></strong>
-            </a>
+            <LangBtn @changeLanguage="this.$emit('changeLanguage')" />
           </div>
         </div>
       </div>
@@ -15,7 +13,12 @@
 </template>
 
 <script>
+import LangBtn from '@/components/LangBtn.vue'
+
 export default {
   name: 'NavBar',
+  components: {
+    LangBtn,
+  },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <NavBar />
+  <NavBar @changeLanguage="changeLanguage" />
   <div>
     <h1>{{ displayTitle }}</h1>
     <p>{{ displayDescription }}</p>
