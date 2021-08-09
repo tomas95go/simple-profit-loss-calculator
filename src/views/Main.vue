@@ -1,4 +1,5 @@
 <template>
+  <NavBar />
   <div>
     <h1>{{ displayTitle }}</h1>
     <p>{{ displayDescription }}</p>
@@ -14,11 +15,13 @@
 <script>
 // @ is an alias to /src
 import Card from '@/components/Card.vue'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'Main',
   components: {
     Card,
+    NavBar,
   },
   data() {
     return {
