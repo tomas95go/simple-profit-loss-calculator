@@ -3,6 +3,7 @@
     @changeLanguage="changeLanguage"
     :currentLanguage="currentLanguage"
     :theme="theme"
+    @switchTheme="switchTheme"
   />
   <div>
     <h1>{{ displayTitle }}</h1>
@@ -106,6 +107,14 @@ export default {
         this.currentLanguage = this.defaultLanguage
       }
       return this.currentLanguage
+    },
+    switchTheme() {
+      if (this.theme === `dark`) {
+        this.theme = `light`
+      } else {
+        this.theme = `dark`
+      }
+      return this.theme
     },
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar"
+    class="navbar has-shadow"
     :class="isDark"
     role="navigation"
     aria-label="main navigation"
@@ -8,9 +8,17 @@
     <div class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item">
-          <button class="button is-dark" :class="isDark">
+          <button
+            class="button"
+            :class="isDark"
+            @click="this.$emit('switchTheme')"
+          >
             <span class="icon is-small">
-              <FontAwesomeIcon :icon="icon" :size="size" :style="style" />
+              <FontAwesomeIcon
+                :icon="toggleIcon"
+                :size="size"
+                :style="{ color: isColor }"
+              />
             </span>
           </button>
         </div>
@@ -28,7 +36,7 @@
 <script>
 import LangBtn from '@/components/LangBtn.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 export default {
   name: 'NavBar',
   components: {
@@ -41,16 +49,18 @@ export default {
   },
   data() {
     return {
-      icon: faSun,
       size: '2x',
-      style: {
-        color: 'yellow',
-      },
     }
   },
   computed: {
     isDark() {
-      return this.theme === `dark` ? 'is-dark' : ''
+      return this.theme === `dark` ? 'is-dark' : 'is-white'
+    },
+    toggleIcon() {
+      return this.theme === `dark` ? faSun : faMoon
+    },
+    isColor() {
+      return this.theme === `dark` ? 'yellow' : 'black'
     },
   },
 }
