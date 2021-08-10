@@ -1,7 +1,8 @@
 <template>
-  <button class="button is-black" @click="this.$emit('changeLanguage')">
+  <a class="navbar-item" @click="this.$emit('changeLanguage')">
     {{ displayBtnLanguageText }}
-  </button>
+    <img class="pl-2" :src="displayImgSource" />
+  </a>
 </template>
 
 <script>
@@ -22,6 +23,18 @@ export default {
       }
 
       return btnLanguageText
+    },
+    displayImgSource() {
+      let imgSource = ``
+      if (this.currentLanguage === 'ENG') {
+        imgSource = `https://i.ibb.co/Z1vc71r/espana-rr.png`
+      }
+
+      if (this.currentLanguage === `SPA`) {
+        imgSource = `https://i.ibb.co/71hhdR2/reino-unido-rr.png`
+      }
+
+      return imgSource
     },
   },
 }
