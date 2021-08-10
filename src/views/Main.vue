@@ -1,5 +1,9 @@
 <template>
-  <NavBar @changeLanguage="changeLanguage" :currentLanguage="currentLanguage" />
+  <NavBar
+    @changeLanguage="changeLanguage"
+    :currentLanguage="currentLanguage"
+    :theme="theme"
+  />
   <div>
     <h1>{{ displayTitle }}</h1>
     <p>{{ displayDescription }}</p>
@@ -51,6 +55,7 @@ export default {
       defaultLanguage: `ENG`,
       title: ``,
       description: ``,
+      theme: 'dark',
     }
   },
   methods: {

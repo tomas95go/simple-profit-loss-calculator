@@ -1,14 +1,17 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar"
+    :class="isDark"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <LangBtn
-              @changeLanguage="this.$emit('changeLanguage')"
-              :currentLanguage="currentLanguage"
-            />
-          </div>
+          <LangBtn
+            @changeLanguage="this.$emit('changeLanguage')"
+            :currentLanguage="currentLanguage"
+          />
         </div>
       </div>
     </div>
@@ -25,6 +28,12 @@ export default {
   },
   props: {
     currentLanguage: String,
+    theme: String,
+  },
+  computed: {
+    isDark() {
+      return this.theme === `dark` ? 'is-dark' : ''
+    },
   },
 }
 </script>
