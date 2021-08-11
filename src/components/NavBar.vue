@@ -26,6 +26,7 @@
           <LangBtn
             @changeLanguage="this.$emit('changeLanguage')"
             :currentLanguage="currentLanguage"
+            :theme="theme"
           />
         </div>
       </div>
