@@ -71,7 +71,7 @@ export default {
     isHovered() {
       let isHovered = ``
       if (this.hover) {
-        isHovered = `has-text-blue`
+        isHovered = `has-text-blue has-text-weight-bold is-underlined`
       }
 
       if (!this.hover) {
