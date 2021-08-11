@@ -1,21 +1,21 @@
 <template>
-  <div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">I bought </label>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">I bought</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded">
+          <input
+            class="input"
+            type="text"
+            placeholder="quantity acquired"
+            v-model="quantityAcquired"
+          />
+        </p>
       </div>
-      <div class="field-body">
-        <div class="field">
-          <p class="control is-expanded">
-            <input
-              class="input"
-              type="text"
-              placeholder="quantity acquired"
-              v-model="quantityAcquired"
-            />
-          </p>
-        </div>
-        <div class="field">
+      <div class="field is-narrow">
+        <div class="control">
           <div class="select">
             <select v-model="selectedVolatile">
               <option disabled value="">Coin</option>
@@ -29,20 +29,27 @@
             </select>
           </div>
         </div>
-        <div class="field-label is-normal">
-          <label class="label"> with </label>
-        </div>
-        <div class="field">
-          <p class="control is-expanded">
-            <input
-              type="text"
-              class="input"
-              placeholder="invested amount"
-              v-model="investedAmount"
-            />
-          </p>
-        </div>
-        <div class="field">
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">With</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded">
+          <input
+            type="text"
+            class="input"
+            placeholder="invested amount"
+            v-model="investedAmount"
+          />
+        </p>
+      </div>
+
+      <div class="field is-narrow">
+        <div class="control">
           <div class="select">
             <select v-model="selectedStable">
               <option disabled value="">Coin</option>
@@ -58,11 +65,11 @@
         </div>
       </div>
     </div>
-    <div>
-      <button @click="submitForm" :value="buttonText">
-        {{ buttonText }}
-      </button>
-    </div>
+  </div>
+  <div>
+    <button class="button" @click="submitForm" :value="buttonText">
+      {{ buttonText }}
+    </button>
   </div>
   <ErrorList :formErrors="formErrors" :errorQuantity="errorQuantity" />
 </template>
@@ -84,7 +91,7 @@ export default {
         },
         {
           id: 2,
-          name: 'BUSD',
+          name: 'USD',
           type: 'stable',
         },
       ],
