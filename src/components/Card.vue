@@ -19,6 +19,10 @@ export default {
   components: {
     DataEntry,
   },
+  props: {
+    theme: String,
+    currentLanguage: String,
+  },
   data() {
     return {
       cardRegion: 'data-entry',

@@ -10,7 +10,7 @@
     <p>{{ displayDescription }}</p>
   </div>
   <div>
-    <Card />
+    <Card :theme="theme" :currentLanguage="currentLanguage" />
   </div>
 </template>
 
