@@ -12,17 +12,17 @@
 </template>
 
 <script>
-
-import DataEntry from "@/components/DataEntry.vue";
+import DataEntry from '@/components/DataEntry.vue'
 
 export default {
-  name: "Card",
-    components: {
+  name: 'Card',
+  components: {
     DataEntry,
   },
   data() {
     return {
       cardRegion: 'data-entry',
     }
-  }
+  },
+}
 </script>
