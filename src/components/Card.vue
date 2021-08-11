@@ -1,13 +1,17 @@
 <template>
   <div class="card">
-    <header class="card-header">
+    <header class="card-header" :class="hasBackgroundColor">
       <div class="card-header-title is-centered">
-        <h3 class="is-size-4 has-text-weight-bold">
+        <h3 class="is-size-4 has-text-weight-bold" :class="hasTextColor">
           {{ displayTradeCardTitle }}
         </h3>
       </div>
     </header>
-    <div class="card-content" v-if="cardRegion === 'data-entry'">
+    <div
+      class="card-content"
+      :class="contentBackgroundColor"
+      v-if="cardRegion === 'data-entry'"
+    >
       <DataEntry />
     </div>
   </div>
@@ -51,6 +55,45 @@ export default {
       })
 
       return currentTitle[0].text
+    },
+    hasBackgroundColor() {
+      let backgroundColor = ``
+
+      if (this.theme === `dark`) {
+        backgroundColor = `has-background-dark`
+      }
+
+      if (this.theme === `light`) {
+        backgroundColor = `has-background-white-ter`
+      }
+
+      return backgroundColor
+    },
+    hasTextColor() {
+      let textColor = ``
+
+      if (this.theme === `dark`) {
+        textColor = `has-text-white`
+      }
+
+      if (this.theme === `light`) {
+        textColor = `has-text-grey-dark`
+      }
+
+      return textColor
+    },
+    contentBackgroundColor() {
+      let backgroundColor = ``
+
+      if (this.theme === `dark`) {
+        backgroundColor = `has-background-grey-dark`
+      }
+
+      if (this.theme === `light`) {
+        backgroundColor = `has-background-white`
+      }
+
+      return backgroundColor
     },
   },
 }
