@@ -11,13 +11,17 @@
             type="text"
             placeholder="quantity acquired"
             v-model="quantityAcquired"
+            @input="removeError('qtyAcquired')"
           />
         </p>
       </div>
       <div class="field is-narrow">
         <div class="control">
           <div class="select">
-            <select v-model="selectedVolatile">
+            <select
+              v-model="selectedVolatile"
+              @change="removeError('optionVolatile')"
+            >
               <option disabled value="">{{ optionCoinText }}</option>
               <option
                 v-for="coin in volatileCoins"
@@ -44,6 +48,7 @@
             class="input"
             placeholder="invested amount"
             v-model="investedAmount"
+            @input="removeError('investedAmount')"
           />
         </p>
       </div>
@@ -51,7 +56,10 @@
       <div class="field is-narrow">
         <div class="control">
           <div class="select">
-            <select v-model="selectedStable">
+            <select
+              v-model="selectedStable"
+              @change="removeError('optionStable')"
+            >
               <option disabled value="">{{ optionCoinText }}</option>
               <option
                 v-for="coin in stableCoins"
@@ -117,28 +125,49 @@ export default {
       this.errorQuantity = 0
       let errorCode = 0
       let errorMessage = ``
+      let inputError = ``
       if (!this.selectedStable) {
         errorCode = 1
         errorMessage = this.translateError(errorCode)
-        this.formErrors.push({ id: errorCode, message: errorMessage })
+        inputError = `optionStable`
+        this.formErrors.push({
+          id: errorCode,
+          message: errorMessage,
+          errorKey: inputError,
+        })
       }
 
       if (!this.selectedVolatile) {
         errorCode = 2
         errorMessage = this.translateError(errorCode)
-        this.formErrors.push({ id: errorCode, message: errorMessage })
+        inputError = `optionVolatile`
+        this.formErrors.push({
+          id: errorCode,
+          message: errorMessage,
+          errorKey: inputError,
+        })
       }
 
       if (!this.quantityAcquired) {
         errorCode = 3
         errorMessage = this.translateError(errorCode)
-        this.formErrors.push({ id: errorCode, message: errorMessage })
+        inputError = `qtyAcquired`
+        this.formErrors.push({
+          id: errorCode,
+          message: errorMessage,
+          errorKey: inputError,
+        })
       }
 
       if (!this.investedAmount) {
         errorCode = 4
         errorMessage = this.translateError(errorCode)
-        this.formErrors.push({ id: errorCode, message: errorMessage })
+        inputError = `investedAmount`
+        this.formErrors.push({
+          id: errorCode,
+          message: errorMessage,
+          errorKey: inputError,
+        })
       }
 
       if (this.formErrors.length) {
@@ -186,6 +215,46 @@ export default {
       }
 
       return errorMessage
+    },
+    removeError(errorKey) {
+      let errorIndex
+      if (this.formErrors.length > 0 && this.quantityAcquired > 0) {
+        errorIndex = this.getErrorByIndex(errorKey)
+        if (errorIndex !== -1) {
+          this.removeErrorByIndex(errorIndex)
+        }
+      }
+
+      if (this.formErrors.length > 0 && this.investedAmount > 0) {
+        errorIndex = this.getErrorByIndex(errorKey)
+        if (errorIndex !== -1) {
+          this.removeErrorByIndex(errorIndex)
+        }
+      }
+
+      if (this.formErrors.length > 0 && this.selectedStable !== '') {
+        errorIndex = this.getErrorByIndex(errorKey)
+        if (errorIndex !== -1) {
+          this.removeErrorByIndex(errorIndex)
+        }
+      }
+
+      if (this.formErrors.length > 0 && this.selectedVolatile !== '') {
+        errorIndex = this.getErrorByIndex(errorKey)
+        if (errorIndex !== -1) {
+          this.removeErrorByIndex(errorIndex)
+        }
+      }
+
+      return this.formErrors
+    },
+    getErrorByIndex(errorKey) {
+      let index
+      index = this.formErrors.findIndex((el) => el.errorKey === errorKey)
+      return index
+    },
+    removeErrorByIndex(index) {
+      return this.formErrors.splice(index, 1)
     },
   },
   computed: {
