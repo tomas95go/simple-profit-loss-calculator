@@ -18,6 +18,7 @@ export default {
   props: {
     errorQuantity: Number,
     formErrors: Array,
+    theme: String,
   },
 }
 </script>

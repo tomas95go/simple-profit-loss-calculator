@@ -71,7 +71,11 @@
       {{ buttonText }}
     </button>
   </div>
-  <ErrorList :formErrors="formErrors" :errorQuantity="errorQuantity" />
+  <ErrorList
+    :formErrors="formErrors"
+    :errorQuantity="errorQuantity"
+    :theme="theme"
+  />
 </template>
 
 <script>
