@@ -119,25 +119,25 @@ export default {
       let errorMessage = ``
       if (!this.selectedStable) {
         errorCode = 1
-        errorMessage = `You need to select a stable coin from the list`
+        errorMessage = this.translateError(errorCode)
         this.formErrors.push({ id: errorCode, message: errorMessage })
       }
 
       if (!this.selectedVolatile) {
         errorCode = 2
-        errorMessage = `You need to select a volatile coin from the list`
+        errorMessage = this.translateError(errorCode)
         this.formErrors.push({ id: errorCode, message: errorMessage })
       }
 
       if (!this.quantityAcquired) {
         errorCode = 3
-        errorMessage = `Your quantity acquired must be greater than 0`
+        errorMessage = this.translateError(errorCode)
         this.formErrors.push({ id: errorCode, message: errorMessage })
       }
 
       if (!this.investedAmount) {
         errorCode = 4
-        errorMessage = `Your invested amount must be greater than 0`
+        errorMessage = this.translateError(errorCode)
         this.formErrors.push({ id: errorCode, message: errorMessage })
       }
 
@@ -149,6 +149,45 @@ export default {
     },
     submitForm() {
       this.validateForm()
+    },
+    translateError(errorCode) {
+      let errorMessage = ``
+
+      if (errorCode === 1 && this.currentLanguage === `ENG`) {
+        errorMessage = `You need to select a stable coin from the list`
+      }
+
+      if (errorCode === 1 && this.currentLanguage === `SPA`) {
+        errorMessage = `Debes seleccionar una moneda estable de la lista`
+      }
+
+      if (errorCode === 2 && this.currentLanguage === `ENG`) {
+        errorMessage = `You need to select a volatile coin from the list`
+      }
+
+      if (errorCode === 2 && this.currentLanguage === `SPA`) {
+        errorMessage = `Debes seleccionar una moneda volátil de la lista`
+      }
+
+      if (errorCode === 3 && this.currentLanguage === `ENG`) {
+        errorMessage = `Your quantity acquired must be greater than 0`
+      }
+
+      if (errorCode === 3 && this.currentLanguage === `SPA`) {
+        errorMessage = `Tu cantidad adquirida debe ser mayor a 0`
+      }
+
+      if (errorCode === 4 && this.currentLanguage === `ENG`) {
+        errorMessage = `Your invested amount must be greater than 0`
+      }
+
+      if (errorCode === 4 && this.currentLanguage === `SPA`) {
+        errorMessage = `El monto de la inversión debe ser mayor a 0`
+      }
+
+      console.log(errorMessage)
+
+      return errorMessage
     },
   },
   computed: {
