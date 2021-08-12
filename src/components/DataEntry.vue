@@ -185,8 +185,6 @@ export default {
         errorMessage = `El monto de la inversión debe ser mayor a 0`
       }
 
-      console.log(errorMessage)
-
       return errorMessage
     },
   },
