@@ -8,7 +8,7 @@
         <p class="control is-expanded">
           <input
             class="input"
-            type="text"
+            type="number"
             placeholder="quantity acquired"
             v-model="quantityAcquired"
             @input="removeError('qtyAcquired')"
@@ -44,7 +44,7 @@
       <div class="field">
         <p class="control is-expanded">
           <input
-            type="text"
+            type="number"
             class="input"
             placeholder="invested amount"
             v-model="investedAmount"
@@ -148,7 +148,11 @@ export default {
         })
       }
 
-      if (!this.quantityAcquired) {
+      if (
+        this.quantityAcquired === 0 ||
+        this.quantityAcquired === '' ||
+        this.quantityAcquired === '0'
+      ) {
         errorCode = 3
         errorMessage = this.translateError(errorCode)
         inputError = `qtyAcquired`
@@ -159,7 +163,11 @@ export default {
         })
       }
 
-      if (!this.investedAmount) {
+      if (
+        this.investedAmount === 0 ||
+        this.investedAmount === '' ||
+        this.investedAmount === '0'
+      ) {
         errorCode = 4
         errorMessage = this.translateError(errorCode)
         inputError = `investedAmount`
@@ -225,7 +233,11 @@ export default {
         }
       }
 
-      if (this.formErrors.length > 0 && this.investedAmount > 0) {
+      if (
+        this.formErrors.length > 0 &&
+        this.investedAmount > 0 &&
+        this.investedAmount !== ''
+      ) {
         errorIndex = this.getErrorByIndex(errorKey)
         if (errorIndex !== -1) {
           this.removeErrorByIndex(errorIndex)
