@@ -81,6 +81,10 @@ export default {
   components: {
     ErrorList,
   },
+  props: {
+    theme: String,
+    currentLanguage: String,
+  },
   data() {
     return {
       coinList: [

@@ -12,7 +12,7 @@
       :class="contentBackgroundColor"
       v-if="cardRegion === 'data-entry'"
     >
-      <DataEntry />
+      <DataEntry :currentLanguage="currentLanguage" :theme="theme" />
     </div>
   </div>
 </template>
