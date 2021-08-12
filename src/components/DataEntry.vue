@@ -1,7 +1,7 @@
 <template>
   <div class="field is-horizontal">
     <div class="field-label is-normal">
-      <label class="label">I bought</label>
+      <label class="label">{{ purchaseText }}</label>
     </div>
     <div class="field-body">
       <div class="field">
@@ -18,7 +18,7 @@
         <div class="control">
           <div class="select">
             <select v-model="selectedVolatile">
-              <option disabled value="">Coin</option>
+              <option disabled value="">{{ optionCoinText }}</option>
               <option
                 v-for="coin in volatileCoins"
                 :key="coin.id"
@@ -34,7 +34,7 @@
   </div>
   <div class="field is-horizontal">
     <div class="field-label is-normal">
-      <label class="label">With</label>
+      <label class="label">{{ purchaseConector }}</label>
     </div>
     <div class="field-body">
       <div class="field">
@@ -52,7 +52,7 @@
         <div class="control">
           <div class="select">
             <select v-model="selectedStable">
-              <option disabled value="">Coin</option>
+              <option disabled value="">{{ optionCoinText }}</option>
               <option
                 v-for="coin in stableCoins"
                 :key="coin.id"
@@ -103,7 +103,6 @@ export default {
       quantityAcquired: 0,
       selectedVolatile: '',
       selectedStable: '',
-      buttonText: 'Calculate',
       errorQuantity: 0,
       formErrors: [],
     }
@@ -154,6 +153,58 @@ export default {
     },
     stableCoins() {
       return this.coinList.filter((coin) => coin.type === 'stable')
+    },
+    purchaseText() {
+      let purchaseText = ``
+
+      if (this.currentLanguage === `ENG`) {
+        purchaseText = `Bought`
+      }
+
+      if (this.currentLanguage === `SPA`) {
+        purchaseText = `Compré`
+      }
+
+      return purchaseText
+    },
+    purchaseConector() {
+      let conector = ``
+
+      if (this.currentLanguage === `ENG`) {
+        conector = `With`
+      }
+
+      if (this.currentLanguage === `SPA`) {
+        conector = `Con`
+      }
+
+      return conector
+    },
+    optionCoinText() {
+      let optionCoinText = ``
+
+      if (this.currentLanguage === `ENG`) {
+        optionCoinText = `COIN`
+      }
+
+      if (this.currentLanguage === `SPA`) {
+        optionCoinText = `MONEDA`
+      }
+
+      return optionCoinText
+    },
+    buttonText() {
+      let btnText = ``
+
+      if (this.currentLanguage === `ENG`) {
+        btnText = `Calculate`
+      }
+
+      if (this.currentLanguage === `SPA`) {
+        btnText = `Calcular`
+      }
+
+      return btnText
     },
   },
 }
